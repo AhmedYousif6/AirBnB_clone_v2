@@ -18,7 +18,7 @@ class FileStorage:
                 if type(value) is cls:
                     filterd_dict[key] = value
             return filterd_dict
-    
+
     def delete(self, obj=None):
         if obj is not None:
             obj_key = obj.to_dict()['__class__'] + '.' + obj.id
@@ -58,6 +58,6 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
