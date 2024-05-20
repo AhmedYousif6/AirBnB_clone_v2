@@ -18,5 +18,11 @@ def hbnb():
     """Return HBNB"""
     return ("HBNB")
 
+@app.route('/c/<text>', strict_slashes=False)
+def c_text(text):
+    """print C followed by the value of text"""
+    text = text.replace("_", " ")
+    return (f"C {text}")
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
